@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Beli | eSPeJe 2025</title>
+    <!-- Load Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Kanit untuk Judul -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Menggunakan font Inter -->
+    <style>
+        /* FIX KRITIS: Menambahkan padding di bagian atas halaman saat scrolling ke anchor link */
+        html {
+            scroll-padding-top: 4.5rem; /* Sinkronisasi dengan index.html (72px) */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070e1a; /* Biru Tua Sangat Pekat (Dark Blue 950) */
+            color: #e5e7eb; /* Teks terang */
+            scroll-behavior: smooth;
+        }
+
+        /* Font Kanit untuk Judul Utama */
+        .kanit-title {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        /* Styling Tombol CTA Emas (Diadaptasi dari index.html) */
+        .cta-button-gold {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.4); 
+        }
+        .cta-button-gold:hover {
+            background-color: #f59e0b; 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px 0 rgba(251, 191, 36, 0.6);
+        }
+
+        /* Styling untuk Box Harga */
+        .price-box {
+            background-color: #111827; /* Gray 900 */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            border: 1px solid #374151; /* Gray 700 */
+        }
+
+        /* Styling untuk Harga Diskon (dalam kurung) */
+        .discount-price {
+            font-weight: 500;
+            color: #facc15; /* Kuning Aksen */
+        }
+        
+        /* Styling untuk logo Jenius di bagian 2 (HILANGKAN FRAME HITAM) */
+        .jenius-logo-container {
+             /* Menghilangkan background hitam yang menyebabkan frame */
+             padding: 2.5rem 0; /* Mengatur padding agar tidak terlalu lebar */
+        }
+    </style>
+</head>
+<body class="pb-10">
+
+    <!-- Navbar/Header (Fixed Top, Dark Blue) -->
+    <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo dan Judul -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/welcome-02.png" alt="Logo eSPeJe" class="w-8 h-8 object-contain">
+                <span class="text-2xl font-extrabold text-yellow-400 tracking-wider kanit-title">eSPeJe 2025</span>
+            </a>
+            
+            <!-- Navigasi Desktop/Mobile (DIHILANGKAN FITUR RINCI) -->
+            <nav class="space-x-4 text-sm font-medium flex items-center">
+                <!-- Tautan Home -->
+                <a href="index.html#home" class="text-gray-300 hover:text-yellow-400 transition duration-150 hidden sm:inline-block">Home</a>
+                <!-- Tautan Cara Beli (Aktif) -->
+                <a href="#" class="nav-link-active hidden sm:inline-block">Cara Beli</a>
+                
+                <!-- Tombol Mobile (Kembali ke Home) -->
+                 <a href="index.html" class="cta-button-gold inline-block bg-yellow-400 text-gray-900 font-extrabold py-2 px-4 rounded-xl text-sm hover:bg-yellow-500 transition duration-300 sm:hidden">
+                    &larr; Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Cara Beli -->
+    <main class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-white kanit-title mb-4">
+                Gimana Cara Belinya?
+            </h1>
+            <p class="text-center text-lg text-gray-400 mb-16">
+                Pilih opsi pembelian yang paling nyaman dan terpercaya untuk Anda.
+            </p>
+
+            <!-- BAGIAN 1: HOW TO BUY, HARGA, QRIS -->
+            <section class="grid md:grid-cols-2 gap-10 items-start mb-20">
+                <!-- Kolom Kiri: How to Buy Diagram & QRIS -->
+                <div class="space-y-8">
+                    <!-- Diagram How To Buy -->
+                    <div class="flex items-center space-x-4">
+                        <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/published/copy-of-23062024-buy-3.png?1719593346" alt="Diagram How To Buy: QRIS, Bank Transfer, Marketplace" class="w-2/3 mx-auto md:w-full object-contain" />
+                    </div>
+
+                    <!-- Judul QRIS dan Gambar QR (TANPA FRAME) -->
+                    <div class="text-center p-0 rounded-lg shadow-none">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-4">Pembayaran Via QRIS</h3>
+                        <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/published/chrome-nq7829h2oq.png?1737530899" alt="Gambar QRIS Code Standar Pembayaran Nasional GPN" class="w-full max-w-xs mx-auto object-contain rounded-lg"/>
+                        <p class="text-sm text-gray-500 mt-2">Scan QRIS ini menggunakan aplikasi Bank/E-Wallet favorit Anda.</p>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Daftar Harga & Promo -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Buat Kalian yang Mau Punya Aplikasi Keren Ini, Harganya Cuma:</h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        
+                        <div class="price-box">
+                            <p class="font-semibold text-base mb-1">Rp 526.500,-</p>
+                            <p class="text-gray-400">untuk 1 User per PC/Laptop <span class="text-yellow-400 font-medium">per Bulan</span>.</p>
+                        </div>
+                        <div class="price-box">
+                            <p class="font-semibold text-base mb-1">Rp 2.999.000,-</p>
+                            <p class="text-gray-400">untuk 1 User per PC/Laptop <span class="text-yellow-400 font-medium">per Tahun</span> (<span class="discount-price">Rp 250.000 per User per Bulan</span>).</p>
+                        </div>
+                        <div class="price-box">
+                            <p class="font-semibold text-base mb-1">Rp 4.499.000,-</p>
+                            <p class="text-gray-400">untuk 2 Users per PC/Laptop <span class="text-yellow-400 font-medium">per Tahun</span> (<span class="discount-price">Rp 187.500 per User per Bulan</span>).</p>
+                        </div>
+                        <div class="price-box">
+                            <p class="font-semibold text-base mb-1">Rp 5.250.000,-</p>
+                            <p class="text-gray-400">untuk 3 Users per PC/Laptop <span class="text-yellow-400 font-medium">per Tahun</span> (<span class="discount-price">Rp 145.000 per User per Bulan</span>).</p>
+                        </div>
+                        <div class="price-box">
+                            <p class="font-semibold text-base mb-1">Rp 6.000.000,-</p>
+                            <p class="text-gray-400">untuk 4 Users per PC/Laptop <span class="text-yellow-400 font-medium">per Tahun</span> (<span class="discount-price">Rp 125.000 per User per Bulan</span>).</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-gray-700">
+                        <h3 class="text-xl font-extrabold text-red-500 mb-2">KEMAHALAN???</h3>
+                        <p class="text-gray-300">
+                            Ok... coba dulu aja **trial / demo** nya, setelah dicoba dan paham cara gunainnya, yakin banget nanti ngomong harga segitu pasti **kemurahan**.
+                        </p>
+                        <!-- Tombol Request Demo -->
+                        <a href="https://wa.me/6281297971551" target="_blank" class="cta-button-gold mt-4 inline-block bg-yellow-400 text-gray-900 font-extrabold py-3 px-6 rounded-xl text-lg hover:bg-yellow-500 transition duration-300 w-full text-center">
+                            Request Trial / Demo Sekarang
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- BAGIAN 2: TRANSFER BANK & MARKETPLACE -->
+            <section class="pt-10">
+                <h2 class="text-3xl font-bold text-yellow-400 mb-8 border-b border-gray-700 pb-3 text-center">
+                    Transfer Bank & Pilihan Marketplace
+                </h2>
+
+                <!-- Detail Bank Jenius (Jarak Bawah Dikurangi) -->
+                <div class="jenius-logo-container text-center mb-1"> <!-- mb-10 diubah menjadi mb-6 -->
+                    <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/editor/22122024-buy-1.png?1737531724" alt="Logo Jenius" class="w-128 mx-auto mb-4 object-contain"/> 
+                </div>
+                
+                <!-- Marketplace Pilihan (Jarak Atas Dikurangi) -->
+                <div class="text-center mt-3"> <!-- mt-12 diubah menjadi mt-6 -->
+
+                    <!-- Tokopedia (Jarak Vertikal Dikurangi) -->
+                    <a href="http://www.tokopedia.com/tmy/apl1k4si-sppd-dan-honorarium-1-user-1-bulan" target="_blank" class="block my-3 p-4 rounded-xl hover:bg-gray-800 transition duration-300"> <!-- my-6 diubah menjadi my-3 -->
+                        <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/editor/toped.png?1719592627" alt="Logo Tokopedia" class="w-128 mx-auto object-contain"/>
+                    </a>
+                    
+                    <!-- Shopee (Jarak Vertikal Dikurangi) -->
+                    <a href="https://shopee.co.id/product/11670508/18487381143" target="_blank" class="block my-3 p-4 rounded-xl hover:bg-gray-800 transition duration-300"> <!-- my-6 diubah menjadi my-3 -->
+                        <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/editor/shopee.png?1719592638?1719592627" alt="Logo Shopee" class="w-128 mx-auto object-contain"/>
+                    </a>
+
+                    <p class="text-sm text-gray-500 mt-4">Pastikan Anda membeli di toko resmi eSPeJe.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer - Diadaptasi dari index.html -->
+    <footer class="bg-gray-950 text-white py-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-lg font-bold mb-3 text-yellow-400 kanit-title">eSPeJe 2025 by @TOMMY</p>
+            <p class="text-sm text-gray-600">Hak Cipta &copy; 2025. Solusi administrasi keuangan terdepan.</p>
+        </div>
+    </footer>
+</body>
+</html>
