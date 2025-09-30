@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSPeJe 2025 | Solusi Administrasi Keuangan Terstruktur</title>
+    <!-- Load Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Kanit untuk Judul -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Menggunakan font Inter -->
+    <style>
+        /* FIX KRITIS: Menambahkan padding di bagian atas halaman saat scrolling ke anchor link */
+        html {
+            scroll-padding-top: 4.5rem; /* Dari user: 4.5rem (72px) */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070e1a; /* Biru Tua Sangat Pekat (Dark Blue 950) */
+            color: #e5e7eb; /* Teks terang */
+            scroll-behavior: smooth;
+        }
+
+        /* Font Kanit untuk Judul Utama */
+        .kanit-title {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        /* Styling Kartu untuk Meniru Dashboard */
+        .dashboard-card {
+            background-color: #111827; /* Gray 900 */
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        /* Styling Tombol CTA Emas */
+        .cta-button-gold {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.4); /* Shadow kuning */
+        }
+        .cta-button-gold:hover {
+            background-color: #f59e0b; /* Kuning 600 */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px 0 rgba(251, 191, 36, 0.6);
+        }
+
+        /* --- STYLING NAVIGASI BAWAH (MOBILE ONLY) --- */
+        .bottom-nav {
+            background-color: #030712; /* Warna sangat gelap */
+            border-top: 1px solid #1f2937; /* Garis pemisah */
+            padding-bottom: env(safe-area-inset-bottom); /* Amankan area notch/bar bawah */
+        }
+        .bottom-nav-link {
+            transition: all 0.2s;
+            padding: 0.5rem 0.25rem;
+            border-radius: 0.5rem;
+            color: #9ca3af; /* Default gray text */
+        }
+        .bottom-nav-link.active {
+            color: #facc15; /* Kuning Aksen */
+        }
+        
+        /* Penyembunyian Scrollbar untuk Chrome, Safari, Opera (Opsional, tapi bersih) */
+        /* Menyembunyikan scrollbar untuk album gambar */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* --- EFEK MESIN KETIK --- */
+        .typewriter-container {
+             /* Pastikan container memiliki lebar penuh */
+             display: flex;
+             justify-content: center;
+             height: 1.5em; /* Tetapkan tinggi agar layout tidak bergeser */
+             line-height: 1.5; /* Jarak baris yang rapi */
+             font-size: 0.9em; /* Teks sedikit lebih kecil */
+        }
+
+        .typewriter-text {
+            /* Lebar diset 100% dari lebar teks (27 karakter) */
+            width: 0;
+            overflow: hidden; /* Menyembunyikan teks saat animasi belum berjalan */
+            border-right: 0.15em solid white; /* Kursor berkedip */
+            white-space: nowrap; /* Memastikan teks tetap dalam satu baris */
+            letter-spacing: 0.15em; /* Jarak antar huruf seperti mesin ketik */
+            
+            /* FIX KRITIS: Menggunakan satu animasi untuk looping dan steps */
+            animation: 
+                typing-loop 6.5s infinite steps(27, end), /* 6.5s per siklus, 27 langkah */
+                blink-caret 0.75s step-end infinite; /* Kursor berkedip */
+        }
+
+        /* Animasi kursor berkedip (tetap sama) */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+
+        /* Animasi Gabungan: Ketik, Tahan, Reset, Ulangi */
+        @keyframes typing-loop {
+            0% { width: 0; }
+            53.8% { width: 100%; } /* Ketik selesai (3.5s / 6.5s) */
+            80% { width: 100%; } /* Tahan (Hold) */
+            80.1% { width: 0; border-color: transparent; } /* Reset Instan */
+            100% { width: 0; } /* Pause sebelum loop */
+        }
+
+        /* FIX KRITIS YOUTUBE: Custom CSS untuk memastikan iFrame responsive dan terlihat */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem; /* Tetap pakai rounded-2xl Tailwind */
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="pb-20 md:pb-0"> <!-- Tambahkan padding bawah untuk Bottom Nav Mobile -->
+
+    <!-- Navbar/Header (Fixed Top, Dark Blue) - Untuk Desktop/Tablet -->
+    <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 shadow-xl hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo dan Judul -->
+            <a href="#home" class="flex items-center space-x-2">
+                <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/welcome-02.png" alt="Logo eSPeJe" class="w-8 h-8 object-contain">
+                <span class="text-2xl font-extrabold text-yellow-400 tracking-wider kanit-title">eSPeJe 2025</span>
+            </a>
+            
+            <!-- Navigasi Desktop -->
+            <nav class="space-x-8 text-sm font-medium">
+                <a href="#home" class="text-gray-300 hover:text-yellow-400 transition duration-150">Home</a>
+                <a href="#kelebihan" class="text-gray-300 hover:text-yellow-400 transition duration-150">Fitur & Keunggulan</a>
+                <a href="#output" class="text-gray-300 hover:text-yellow-400 transition duration-150">Output Dokumen</a>
+                <a href="#cara-beli" class="text-gray-300 hover:text-yellow-400 transition duration-150">Cara Beli</a>
+                <a href="https://wa.me/6281297971551" target="_blank" class="text-gray-300 hover:text-yellow-400 transition duration-150">Hubungi Kami</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bottom Navigation Bar (Fixed Bottom, Mobile Only) -->
+    <nav id="bottom-nav" class="fixed bottom-0 left-0 w-full z-50 bottom-nav md:hidden shadow-2xl">
+        <div class="flex justify-around items-center max-w-xl mx-auto font-medium text-xs">
+            <!-- Tautan Navigasi Mobile -->
+            <a href="#home" data-target="home" class="bottom-nav-link active flex flex-col items-center">
+                <!-- Icon Home -->
+                <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-10l-2-2m0 0l7-7 7 7M19 10v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Home
+            </a>
+            <a href="#kelebihan" data-target="kelebihan" class="bottom-nav-link flex flex-col items-center">
+                <!-- Icon Features -->
+                <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Fitur
+            </a>
+            <a href="#output" data-target="output" class="bottom-nav-link flex flex-col items-center">
+                <!-- Icon Output -->
+                <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-4m-2 4h4a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm1-13h6a2 2 0 012 2v10a2 2 0 01-2 2h-6a2 2 0 01-2-2v-10a2 2 0 012-2z"></path></svg>
+                Output
+            </a>
+            <a href="#cara-beli" data-target="cara-beli" class="bottom-nav-link flex flex-col items-center">
+                <!-- Icon Shop -->
+                <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                Beli
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- Konten Utama -->
+    <main>
+        <!-- SECTION 1: Hero / Landing Page -->
+        <section id="home" class="pt-16 pb-16 sm:pt-24 sm:pb-24 bg-blue-950 text-center border-b-8 border-yellow-400/50">
+            <div class="max-w-5xl mx-auto px-6">
+                <!-- GAMBAR DARI WEEBLY DI ATAS TEKS -->
+                <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/welcome-02.png" 
+                     alt="Ilustrasi Selamat Datang eSPeJe" 
+                     class="mx-auto mb-6 w-28 sm:w-32 h-auto object-contain"
+                >
+                <p class="text-sm font-semibold text-yellow-400 uppercase tracking-widest mb-4">APLIKASI ADMINISTRASI KEUANGAN</p>
+                <h2 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
+                    eSPeJe 2025<br>
+                    <!-- Font di bawah eSPeJe 2025 diubah dari font-extrabold menjadi font-medium -->
+                    <span class="font-medium">Otomasi Dokumen Administrasi<br>SPPD dan Honorarium.</span>
+                </h2>
+                <!-- Teks dengan Efek Mesin Ketik -->
+                <div class="text-xl sm:text-2xl text-blue-300 mb-10 max-w-3xl mx-auto font-mono">
+                    Transformasi kerja administrasi Anda.<br>Dari berhari-hari menjadi <b>kurang dari 1 jam.</b>
+                    <div class="typewriter-container mt-2">
+                        <!-- Teks yang diketik: Cepat, Tepat, dan Terpercaya. (27 Karakter termasuk spasi dan koma) -->
+                        <span class="typewriter-text text-white font-bold block" style="width: 17em;">
+                            Cepat, Tepat, dan Terpercaya.
+                        </span>
+                    </div>
+                </div>
+                <!-- Tombol CTA Utama - EMAS/KUNING -->
+                <!-- Diubah dari font-bold menjadi font-extrabold -->
+                <a href="https://wa.me/6281297971551" target="_blank" class="cta-button-gold inline-block bg-yellow-400 text-gray-900 font-extrabold py-3.5 px-10 rounded-xl text-lg hover:bg-yellow-500 transition duration-300">
+                    Cobain Demonya
+                </a>
+
+                <!-- Teks Narasi Tambahan dari User (Sudah Dinaraikan) -->
+                <div class="mt-12 text-sm sm:text-base text-gray-300 max-w-3xl mx-auto text-left leading-relaxed border-t border-gray-700 pt-8">
+                    <p class="mb-4">Yooo, teman-teman kece! Selamat datang di solusi revolusioner: <b>eSPeJe 2025</b>.</p>
+                    <p class="mb-4">Ini adalah aplikasi keuangan yang dirancang khusus untuk membantu kalian yang super sibuk mengurus administrasi di Kementerian/Lembaga. Dijamin: Gak pakai ribet, gak pakai repot!</p>
+                    <p class="mb-4">Kalau Anda sudah akrab dengan <b>Lembar SPPD, Daftar Honor Narasumber, Kuitansi Perjadin,</b> dan segala macam dokumennya, berarti Anda datang di tempat yang tepat. Yups... sekali coba pasti langsung ketagihan <b>(DIJAMIN)</b>.</p>
+                    <p class="mb-4"><b>eSPeJe 2025</b> merupakan aplikasi kecil berbasis Excel yang sudah disesuaikan dengan kebutuhan spesifik administrasi perjalanan dinas (SPD) dan administrasi pembayaran honorarium.</p>
+                    <p>Aplikasi ini gak cuma kasih paket SPD saja (termasuk paket meeting <i>Fullboard, Fullday,</i> maupun <i>Halfday</i>), tapi juga lengkap dengan administrasi pembayaran honorarium. <i>All-in-One</I> banget, kan? 😆</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION 2: Kelebihan Kami / Fitur Utama -->
+        <section id="kelebihan" class="py-16 sm:py-24 bg-gray-900 border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4">Tiga Pilar Keunggulan eSPeJe</h3>
+                    <p class="text-lg text-gray-400">Dirancang untuk kebutuhan administrasi kementerian yang spesifik dan kompleks.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Kelebihan 1: Efisiensi Waktu -->
+                    <div class="dashboard-card p-6 sm:p-8">
+                        <div class="text-yellow-400 mb-4 text-4xl">⏱️</div>
+                        <h4 class="text-xl font-semibold text-white mb-3">Efisiensi 90%</h4>
+                        <p class="text-gray-400">Tinggalkan pekerjaan 1 minggu! Proses *input* data tunggal menghasilkan semua dokumen (SPD, Kuitansi, Daftar Hadir) dalam 30 menit.</p>
+                    </div>
+
+                    <!-- Kelebihan 2: Kompleksitas Terkelola -->
+                    <div class="dashboard-card p-6 sm:p-8">
+                        <div class="text-yellow-400 mb-4 text-4xl">🗂️</div>
+                        <h4 class="text-xl font-semibold text-white mb-3">All-in-One Compliance</h4>
+                        <p class="text-gray-400">Mencakup semua paket meeting (Fullboard, Fullday) dan pembayaran Honorarium (Narsum, Moderator, Panitia). Sesuai standar keuangan.</p>
+                    </div>
+
+                    <!-- Kelebihan 3: Kemudahan Penggunaan -->
+                    <div class="dashboard-card p-6 sm:p-8">
+                        <div class="text-yellow-400 mb-4 text-4xl">🖱️</div>
+                        <h4 class="text-xl font-semibold text-white mb-3">User-Friendly Excel</h4>
+                        <p class="text-gray-400">Dibangun di atas Microsoft Excel. Tidak perlu *software* baru. *Input* data sekali, lalu **CETAK / EKSPORT** semua output yang Anda butuhkan.</p>
+                    </div>
+                </div>
+
+                <!-- Tautan Selengkapnya untuk Fitur -->
+                <div class="text-center mt-8">
+                    <a href="#request-demo" class="text-lg font-bold text-yellow-400 hover:text-yellow-300 transition duration-200">
+                        Lihat Semua Keunggulan →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: Visualisasi Data (Quick View Videos) -->
+        <section id="demo" class="py-16 sm:py-24 bg-blue-950 border-t border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold text-white mb-8">Quick View Proses Kerja (Demo Aplikasi)</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Video 1: Demo Utama (Ganti dengan ID video Anda) -->
+                    <div class="video-wrapper rounded-2xl shadow-2xl border-4 border-yellow-400/50">
+                        <iframe 
+                            src="https://www.youtube.com/embed/6EqecepsTXk?rel=0&autoplay=0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            title="Video Demo Utama: Alur Kerja Cepat eSPeJe.">
+                        </iframe>
+                    </div>
+
+                    <!-- Video 2: Detail Output (Ganti dengan ID video Anda) -->
+                    <div class="video-wrapper rounded-2xl shadow-2xl border-4 border-gray-700/50">
+                        <iframe 
+                            src="https://www.youtube.com/embed/rSqwdfSPBdk?rel=0&autoplay=0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            title="Video Demo Detail: Cara Penggunaan dan Output Dokumen.">
+                        </iframe>
+                    </div>
+                </div>
+                <p class="mt-6 text-blue-300">Lihat kedua video di atas untuk melihat alur kerja lengkap dan detail output dokumen.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Output / Dokumen Siap Cetak & Interface Album -->
+        <section id="output" class="py-16 sm:py-24 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-6">
+                <h3 class="text-3xl font-bold text-white text-center mb-12">Output Dokumen (Lihat Sampel PDF)</h3>
+                
+                <!-- 6 Output Dokumen - URUTAN TELAH DIPERBAIKI SESUAI PERMINTAAN -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+                    
+                    <!-- Item 1: SPD 1 Narsum -->
+                    <div class="dashboard-card p-4 text-center">
+                        <div class="text-yellow-400 mb-2 text-2xl">📝</div>
+                        <p class="font-semibold text-gray-300 mb-3 text-sm">SPD 1 Narsum</p>
+                        <a href="#" class="text-xs font-medium text-yellow-400 hover:text-yellow-300 download-link">Unduh Sampel →</a>
+                    </div>
+                    
+                    <!-- Item 2: SPD 2 Narsum -->
+                    <div class="dashboard-card p-4 text-center">
+                        <div class="text-yellow-400 mb-2 text-2xl">🗃️</div>
+                        <p class="font-semibold text-gray-300 mb-3 text-sm">SPD 2 Narsum</p>
+                        <a href="#" class="text-xs font-medium text-yellow-400 hover:text-yellow-300 download-link">Unduh Sampel →</a>
+                    </div>
+                     
+                    <!-- Item 3: Rincian SPD Narsum -->
+                    <div class="dashboard-card p-4 text-center">
+                        <div class="text-yellow-400 mb-2 text-2xl">📄</div>
+                        <p class="font-semibold text-gray-300 mb-3 text-sm">Rincian SPD Narsum</p>
+                        <a href="#" class="text-xs font-medium text-yellow-400 hover:text-yellow-300 download-link">Unduh Sampel →</a>
+                    </div>
+
+                    <!-- Item 4: Kuitansi Perjadin Narsum -->
+                    <div class="dashboard-card p-4 text-center">
+                        <div class="text-yellow-400 mb-2 text-2xl">🧾</div>
+                        <p class="font-semibold text-gray-300 mb-3 text-sm">Kuitansi Perjadin Narsum</p>
+                        <a href="#" class="text-xs font-medium text-yellow-400 hover:text-yellow-300 download-link">Unduh Sampel →</a>
+                    </div>
+                    
+                    <!-- Item 5: Honor Narsum -->
+                    <div class="dashboard-card p-4 text-center">
+                        <div class="text-yellow-400 mb-2 text-2xl">💰</div>
+                        <p class="font-semibold text-gray-300 mb-3 text-sm">Honor Narsum</p>
+                        <a href="#" class="text-xs font-medium text-yellow-400 hover:text-yellow-300 download-link">Unduh Sampel →</a>
+                    </div>
+
+                     <!-- Item 6: Daftar Hadir -->
+                    <div class="dashboard-card p-4 text-center">
+                        <div class="text-yellow-400 mb-2 text-2xl">📋</div>
+                        <p class="font-semibold text-gray-300 mb-3 text-sm">Daftar Hadir</p>
+                        <a href="#" class="text-xs font-medium text-yellow-400 hover:text-yellow-300 download-link">Unduh Sampel →</a>
+                    </div>
+                </div>
+
+                <!-- Interface Screensnap Album -->
+                <div class="mt-16 text-center">
+                     <h4 class="text-2xl font-semibold text-white mb-6">Screensnap Interface Aplikasi Excel</h4>
+                     
+                     <!-- Album Wrapper (Relative for Buttons) -->
+                     <div class="w-full max-w-5xl mx-auto relative group">
+                         <!-- Horizontal Scrollable Album Container -->
+                         <div id="screensnap-album" class="flex overflow-x-scroll scrollbar-hide rounded-2xl border-4 border-gray-700/50 shadow-2xl cursor-grab space-x-4 p-4">
+                             <!-- 8 Gambar Placeholder Resolusi Tinggi untuk Modal Pop-up -->
+                             <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/24062024-home_orig.png" 
+                                  alt="Input Data Umum" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/23062024-howto_orig.png" 
+                                  alt="Input Data Narasumber" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/excel-kjgv5xwjr0_orig.png" 
+                                  alt="Input Data Peserta" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/excel-vt2sg4wiyd_orig.png" 
+                                  alt="Tampilan Output SPD" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/capture24_orig.png" 
+                                  alt="Tampilan Output Honorarium" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/capture17_orig.png" 
+                                  alt="Tampilan Output Kuitansi" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://placehold.co/1200x750/111827/facc15?text=REKAP+DATA+7/8" 
+                                  alt="Rekapitulasi Data Keuangan" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                             <img src="https://placehold.co/1200x750/111827/facc15?text=DASHBOARD+MENU+8/8" 
+                                  alt="Dashboard Utama Aplikasi" 
+                                  class="flex-shrink-0 w-[85vw] sm:w-80 h-auto rounded-lg cursor-pointer transition transform hover:scale-[1.01]" 
+                                  onclick="openModal(this.src, this.alt)" />
+                         </div>
+                         
+                         <!-- Navigation Arrows (Desktop Only) -->
+                         <button onclick="scrollAlbum('left')" class="hidden md:flex absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 bg-gray-900/70 p-3 rounded-full text-white hover:bg-yellow-400 hover:text-gray-900 transition duration-300 z-10 shadow-lg opacity-0 group-hover:opacity-100">
+                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                         </button>
+                         <button onclick="scrollAlbum('right')" class="hidden md:flex absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 bg-gray-900/70 p-3 rounded-full text-white hover:bg-yellow-400 hover:text-gray-900 transition duration-300 z-10 shadow-lg opacity-0 group-hover:opacity-100">
+                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                         </button>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Gimana Cara Belinya? -->
+        <section id="cara-beli" class="py-16 sm:py-24 bg-blue-950 border-t border-b border-gray-800">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold text-white mb-12">Langkah Mudah Mendapatkan Aplikasi eSPeJe 2025</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Step 1 -->
+                    <div class="dashboard-card p-6 border-b-4 border-yellow-400">
+                        <div class="text-4xl font-extrabold text-yellow-400 mb-3">1</div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Pesan</h4>
+                        <p class="text-gray-400">Pilih Shopee atau Tokopedia untuk transaksi yang aman.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="dashboard-card p-6 border-b-4 border-yellow-400">
+                        <div class="text-4xl font-extrabold text-yellow-400 mb-3">2</div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Bayar</h4>
+                        <p class="text-gray-400">Selesaikan pembayaran sesuai metode yang Anda pilih.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="dashboard-card p-6 border-b-4 border-yellow-400">
+                        <div class="text-4xl font-extrabold text-yellow-400 mb-3">3</div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Terima</h4>
+                        <p class="text-gray-400">Link download akan segera dikirimkan ke email Anda.</p>
+                    </div>
+                </div>
+
+                <!-- Tautan Selengkapnya untuk Cara Beli -->
+                <div class="text-center mt-8">
+                    <a href="#request-demo" class="text-lg font-bold text-yellow-400 hover:text-yellow-300 transition duration-200">
+                        Baca Selengkapnya →
+                    </a>
+                </div>
+
+                
+                <!-- CTA Marketplace -->
+                <div class="mt-12 pt-8 border-t border-gray-800">
+                    <h4 class="text-xl font-semibold text-white mb-4">Mulai Hemat Waktu Sekarang Juga</h4>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="https://shopee.co.id/product/11670508/18487381143/" target="_blank" class="cta-button-gold inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-xl hover:bg-yellow-500">
+                            🛒 Beli di Shopee
+                        </a>
+                        <a href="http://www.tokopedia.com/tmy/apl1k4si-sppd-dan-honorarium-1-user-1-bulan" target="_blank" class="cta-button-gold inline-block bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-xl hover:bg-yellow-500">
+                            🛍️ Beli di Tokopedia
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 6: Call to Action Final / Request Demo -->
+        <section id="request-demo" class="py-16 sm:py-20 bg-gray-900 text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h3 class="text-3xl sm:text-4xl font-extrabold mb-4 text-white">Butuh Penjelasan Lebih Lanjut?</h3>
+                <p class="text-lg mb-8 text-gray-400">Tim kami siap membantu Anda dengan demo dan konsultasi gratis.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://wa.me/6281297971551" target="_blank" class="inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-xl text-lg shadow-lg hover:bg-green-600 transition duration-300">
+                        WhatsApp Me
+                    </a>
+                    <a href="mailto:tommy@example.com" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-xl text-lg hover:bg-blue-700 transition duration-300">
+                        Email Me
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-lg font-bold mb-3 text-yellow-400 kanit-title">eSPeJe 2025 by @TOMMY</p>
+            <p class="text-sm text-gray-600">Hak Cipta &copy; 2025. Solusi administrasi keuangan terdepan.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL (Lightbox) untuk Screensnap Interface -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-90 z-[100] hidden items-center justify-center p-4" onclick="closeModal()">
+        <div class="max-w-6xl max-h-full" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-yellow-400 z-10">&times;</button>
+            <img id="modal-image" src="" alt="" class="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-2xl transition duration-300">
+            <p id="modal-caption" class="mt-3 text-center text-gray-300 text-lg font-medium"></p>
+        </div>
+    </div>
+
+    <!-- Logika JavaScript untuk Highlight Navigasi Mobile dan Modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('main section[id]');
+            const navLinks = document.querySelectorAll('.bottom-nav-link[data-target]');
+            const activeClass = 'active';
+            
+            // Ketinggian Sticky Header yang diperkirakan untuk kompensasi scroll.
+            // Diubah menjadi 72px agar sinkron dengan scroll-padding-top: 4.5rem
+            const SCROLL_OFFSET = 72; 
+            const VIEWPORT_TOP_TOLERANCE = 120; 
+
+            // Flag untuk menonaktifkan IO saat terjadi click scroll
+            let isClickScrolling = false; 
+            
+            // Fungsi untuk mengaktifkan tautan secara visual
+            function setActiveLink(activeId) {
+                navLinks.forEach(link => {
+                    link.classList.remove(activeClass);
+                    // Gunakan data-target untuk mencocokkan ID
+                    if (link.dataset.target === activeId) {
+                        link.classList.add(activeClass);
+                    }
+                });
+            }
+
+            // 1. Logika Intersection Observer (Untuk Scrolling Natural)
+            const observerOptions = {
+                root: null,
+                // Jendela deteksi disetel sangat ketat di bawah header
+                rootMargin: `-${VIEWPORT_TOP_TOLERANCE}px 0px -70% 0px`, 
+                threshold: 0 
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                // Hentikan IO jika sedang terjadi click scroll
+                if (isClickScrolling) return; 
+
+                let activeId = null;
+                const scrollY = window.scrollY;
+
+                // Cari bagian yang paling atas yang sedang di-intersect
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        activeId = entry.target.getAttribute('id');
+                        break; 
+                    }
+                }
+                
+                // Fallback: Default ke home jika di atas
+                if (!activeId && scrollY < SCROLL_OFFSET) { 
+                    activeId = 'home';
+                }
+
+                if (activeId) {
+                    // Gunakan fungsi terpusat untuk update visual
+                    setActiveLink(activeId);
+                }
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // 2. Logika Click Handler (FIX Bottom Bar - Menggunakan window.scrollTo)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    // 1. Update status aktif secara instan (visual feedback)
+                    setActiveLink(targetId);
+                    
+                    if (targetElement) {
+                        // Mengaktifkan flag dan menonaktifkan observer untuk menghindari konflik highlight
+                        isClickScrolling = true;
+
+                        // 2. HITUNG MANUAL: target.offsetTop - SCROLL_OFFSET (72px)
+                        const targetPosition = targetElement.offsetTop;
+                        const scrollPosition = Math.max(0, targetPosition - SCROLL_OFFSET); 
+                        
+                        // 3. Lakukan scroll eksplisit
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // 4. Setelah scroll selesai, aktifkan kembali observer
+                        setTimeout(() => {
+                            isClickScrolling = false;
+                        }, 700); // Beri waktu 700ms (lebih dari durasi smooth scroll) sebelum IO aktif lagi
+                    }
+                });
+            });
+
+
+            // 3. Logika Modal Pesan (Pengganti alert/confirm)
+            function showMessage(message) {
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[100]'; 
+                modal.innerHTML = `
+                    <div class="dashboard-card p-6 max-w-sm mx-4 text-center">
+                        <p class="text-gray-300 mb-4">${message}</p>
+                        <button onclick="this.parentNode.parentNode.remove()" class="bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-yellow-500 transition">Tutup</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+
+            document.querySelectorAll('.download-link').forEach(link => {
+                if (link.getAttribute('href') === '#') {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const fileName = e.target.closest('div').querySelector('.font-semibold').textContent;
+                        showMessage(`Fungsi download untuk "\${fileName}" belum dihubungkan. Silakan ganti '#' dengan URL file PDF contoh Anda.`);
+                    });
+                }
+            });
+
+            // 4. Logika Modal Gambar (Lightbox)
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('modal-caption');
+
+            window.openModal = function(src, alt) {
+                // Untuk memastikan gambar tampil resolusi asli, kita akan menghapus parameter placehold.co
+                const originalSrc = src.replace(/\/\d+x\d+\//, '/'); 
+                
+                modalImage.src = originalSrc;
+                modalImage.alt = alt;
+                modalCaption.textContent = alt;
+                imageModal.classList.remove('hidden');
+                imageModal.classList.add('flex');
+                document.body.classList.add('overflow-hidden'); // Mencegah scrolling background
+            }
+
+            window.closeModal = function() {
+                imageModal.classList.add('hidden');
+                imageModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            // 5. Logika Navigasi Album Gambar (Panah Kanan/Kiri)
+            window.scrollAlbum = function(direction) {
+                const album = document.getElementById('screensnap-album');
+                // Mengambil lebar gambar pertama (w-[85vw] atau sm:w-80) dan margin (space-x-4 = 16px)
+                const firstImage = album.querySelector('img');
+                if (!firstImage) return;
+
+                const cardWidth = firstImage.offsetWidth + 16; 
+                
+                if (direction === 'left') {
+                    album.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                } else {
+                    album.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
