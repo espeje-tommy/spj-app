@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitur Rinci | eSPeJe 2025</title>
+    <!-- Load Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Kanit untuk Judul -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Menggunakan font Inter -->
+    <style>
+        /* FIX KRITIS: Menambahkan padding di bagian atas halaman saat scrolling ke anchor link */
+        html {
+            scroll-padding-top: 4.5rem; /* Sinkronisasi dengan index.html (72px) */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070e1a; /* Biru Tua Sangat Pekat (Dark Blue 950) */
+            color: #e5e7eb; /* Teks terang */
+            scroll-behavior: smooth;
+        }
+
+        /* Font Kanit untuk Judul Utama */
+        .kanit-title {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        /* Styling untuk Poin-Poin Rinci */
+        .feature-point {
+            background-color: #111827; /* Gray 900 */
+            border-left: 4px solid #facc15; /* Garis kuning sebagai aksen */
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Styling Navigasi Desktop */
+        .nav-link-active {
+            color: #facc15; /* Kuning Aksen */
+            font-weight: 600;
+        }
+        /* Styling Tombol CTA Emas (Diadaptasi dari index.html) */
+        .cta-button-gold {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.4); 
+        }
+        .cta-button-gold:hover {
+            background-color: #f59e0b; 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px 0 rgba(251, 191, 36, 0.6);
+        }
+    </style>
+</head>
+<body class="pb-10">
+
+    <!-- Navbar/Header (Fixed Top, Dark Blue) - DISAMAKAN DENGAN index.html (Styling dan Logo) -->
+    <header class="bg-gray-900/95 backdrop-blur-sm sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo dan Judul -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="https://espeje.weebly.com/uploads/1/4/8/4/148470268/welcome-02.png" alt="Logo eSPeJe" class="w-8 h-8 object-contain">
+                <span class="text-2xl font-extrabold text-yellow-400 tracking-wider kanit-title">eSPeJe 2025</span>
+            </a>
+            
+            <!-- Navigasi Desktop/Mobile (DISEMPURNAKAN SESUAI PERMINTAAN) -->
+            <nav class="space-x-4 text-sm font-medium flex items-center">
+                <!-- Tautan Home -->
+                <a href="index.html#home" class="text-gray-300 hover:text-yellow-400 transition duration-150 hidden sm:inline-block">Home</a>
+                <!-- Tautan Fitur Rinci (Aktif) -->
+                <a href="#" class="nav-link-active hidden sm:inline-block">Fitur Rinci</a>
+                
+                <!-- Tautan 'Output Dokumen' dan 'Cara Beli' DIHILANGKAN sesuai permintaan -->
+                <!-- Tombol 'Demo App' DIHILANGKAN sesuai permintaan -->
+
+                <!-- Tombol Mobile (Kembali ke Home) - Dipertahankan agar ada CTA -->
+                 <a href="index.html" class="cta-button-gold inline-block bg-yellow-400 text-gray-900 font-extrabold py-2 px-4 rounded-xl text-sm hover:bg-yellow-500 transition duration-300 sm:hidden">
+                    &larr; Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Rincian Fitur -->
+    <main class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-white kanit-title mb-4">
+                Fitur & Keunggulan<br>eSPeJe 2025
+            </h1>
+            <p class="text-center text-lg text-gray-400 mb-16">
+                Otomasi Dokumen Administrasi SPPD dan Honorarium
+            </p>
+
+            <!-- Bagian: Kelebihan Kami (The Benefits) -->
+            <h2 class="text-3xl font-bold text-yellow-400 mb-8 border-b border-gray-700 pb-3">
+                Kelebihan Kami
+            </h2>
+            
+            <div class="space-y-6">
+                <!-- Kelebihan 1: User-Friendly -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">User-Friendly</p>
+                    <p class="text-gray-300">Antarmuka aplikasinya sangat ramah pengguna, jadi <b>gak perlu jadi ahli IT</b> buat bisa makenya. <b>Semua orang</b> bisa dengan mudah menguasai dan memanfaatkannya.</p>
+                </div>
+
+                <!-- Kelebihan 2: Super Gampang -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Super Gampang (Kompatibilitas)</p>
+                    <p class="text-gray-300">Pake aplikasi ini tuh <b>gampang banget</b>, cuma perlu <i>Excel</i> minimal versi <b>2019</b>. Siapa sih yang gak punya <i>Excel</i>? Yang penting <b>semua fitur dan fungsi</b> <i>Excel</i>-nya berjalan dengan <b>lancar dan baik</b>.</p>
+                </div>
+
+                <!-- Kelebihan 3: Ringan Banget -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Ringan Banget</p>
+                    <p class="text-gray-300">Aplikasinya <b>enteng</b>, <b>nggak bikin laptop atau komputermu berat</b>. Jadi pasti <b>nyaman</b> buat kerja.</p>
+                </div>
+
+                <!-- Kelebihan 4: Super Cepet -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Super Cepet</p>
+                    <p class="text-gray-300">Nyeduh kopi, pesan pisang goreng, ke toilet, dan <b>tadaaaaaa! Kerjaan udah kelar</b>. <b>Efisien banget</b>!</p>
+                </div>
+
+                <!-- Kelebihan 5: Anti-Stress -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Anti-Stress</p>
+                    <p class="text-gray-300">Gak perlu <i>stress</i> berkepanjangan, <b>cuma hitungan jam aja udah kelar semua</b>. <b>Praktis banget</b>.</p>
+                </div>
+
+                <!-- Kelebihan 6: Error-Proof -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Error-Proof</p>
+                    <p class="text-gray-300">Biar gak ada kesalahan, aplikasi ini udah diracang <b>anti-error</b>, baik dari sisi <b>salah <i>input user</i> maupun sistem</b>, semuanya udah dipikirin <b>matang</b>.</p>
+                </div>
+
+                <!-- Kelebihan 7: Jago Perencanaan -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Jago Perencanaan (Jadwal JPL)</p>
+                    <p class="text-gray-300">Bisa banget <b>asah <i>skill</i> nyusun jadwal JPL</b>. Jadwal itu <b>kunci sukses</b> administrasi SPJ teman-teman! Di sini <b>rahasianya</b>.</p>
+                </div>
+
+                <!-- Kelebihan 8: No Drama -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">No Drama (Sinkronisasi Data)</p>
+                    <p class="text-gray-300">Gak akan ada lagi cerita Narasumber baru nyampe tanggal 5/5/23, tapi di jadwal SPJ malah udah ngajar tanggal 4/5/23. <b>Semua terkontrol dengan sangat baik</b>.</p>
+                </div>
+                
+                <!-- Kelebihan 9: Audit-Proof -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Audit-Proof (Arsip Terintegrasi)</p>
+                    <p class="text-gray-300">Gak usah panik nyari <b>file fisik</b> atau nyari <i>soft file</i> data saat ada audit. <b>Semuanya terarsip rapi</b> dari aplikasi ini.</p>
+                </div>
+
+                <!-- Kelebihan 10: Tanpa Kesalahan -->
+                <div class="feature-point">
+                    <p class="text-xl font-semibold text-white mb-2">Tanpa Kesalahan (Zero Mistake)</p>
+                    <p class="text-gray-300">Hasil output memiliki <i>zero mistake</i>! Karena aplikasi ini dibuat dengan <b>hati-hati dan detail</b>.</p>
+                </div>
+            </div>
+
+            <!-- Batas pemisah -->
+            <div class="my-16 border-t border-gray-700"></div>
+
+
+            <!-- Bagian: Fitur Utama (Core Functionality) -->
+            <h2 class="text-3xl font-bold text-yellow-400 mb-8 border-b border-gray-700 pb-3">
+                Fitur Utama
+            </h2>
+
+            <ul class="space-y-6 text-gray-300">
+                <!-- Fitur 1: Fleksibilitas Kegiatan -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Aplikasi ini dapat digunakan untuk kegiatan dalam bentuk <i><b>Fullboard, Fullday</b></i><b>, dan</b> <i><b>Halfday</b></i>, baik itu kegiatan <b>Dalam Kota maupun Luar Kota</b>.
+                </li>
+
+                <!-- Fitur 2: Kapasitas Pengguna -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Akomodasi <b>maksimal</b> untuk Narasumber, Moderator, dan Penyelenggara adalah <b>10 orang</b> per masing-masing peran, dengan durasi kegiatan maksimal <b>5 hari</b>. Khusus untuk peserta, aplikasi dapat menangani hingga <b>2.000 orang</b>.
+                </li>
+
+                <!-- Fitur 3: Integrasi Administrasi -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Aplikasi ini <b>tidak hanya</b> mencakup <b>SPD Perjalanan Dinas</b> (yang mahal dan biasa ada di pasaran), tetapi juga terintegrasi dengan <b>Administrasi Honorarium</b>.
+                </li>
+                
+                <!-- Fitur 4: Perjalanan Dinas H- dan H+ -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Sudah mengakomodir <b>Perjalanan Dinas H minus</b> (<b>H-x</b>) dan <b>H plus</b> (<b>H+x</b>) bagi penyelenggara/panitia maupun moderator, memastikan <b>perhitungan hari yang akurat</b>.
+                </li>
+
+                <!-- Fitur 5: Uang Representasi -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Tersedia perhitungan untuk <b>Uang Representasi</b> bagi <b>Pejabat Negara, Pejabat Eselon I, dan Eselon II</b>.
+                </li>
+                
+                <!-- Fitur 6: Opsi Penginapan Moderator -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Terdapat pilihan menggunakan penginapan biasa atau skema <i><b>Fullboard/Fullday/Halfday</b></i> untuk Moderator, memberikan <b>fleksibilitas administrasi</b>.
+                </li>
+
+                <!-- Fitur 7: Fungsi Kontrol Jadwal -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Memiliki <b>fungsi kontrol pada jadwal acara</b>. Misalnya, Narasumber yang datang tanggal 2 Januari <b>tidak akan mungkin</b> dijadwalkan mengajar pada tanggal 1 Januari karena nama mereka <b>tidak akan tersedia</b> pada <i>dropdown-list</i> pilihan di modul jadwal.
+                </li>
+
+                <!-- Fitur 8: Monitor JPL Real-time -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Bisa melihat <b>langsung</b> pada saat <i>input</i> di modul Jadwal JPL, <b>total JPL</b> yang sudah diambil oleh masing-masing Narasumber dan <b>total JPL</b> untuk kegiatan yang berlangsung.
+                </li>
+                
+                <!-- Fitur 9: Perhitungan Pajak Fleksibel -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    <b>Perhitungan pajak</b> sudah disesuaikan dengan <b>Golongan/Ruang</b> pegawai dan telah mengakomodir pegawai yang <b>tidak memiliki NIP</b> (misal: pegawai <b>Honorer</b> atau <b>perbantuan</b>).
+                </li>
+                
+                <!-- Fitur 10: Model Input Peserta Ganda -->
+                <li class="pl-5 relative before:content-['•'] before:absolute before:left-0 before:top-0 before:text-yellow-400">
+                    Khusus untuk peserta, tersedia <b>2 model peng-<i>input</i>-an</b>: model <i><b>form</b></i> dan model <i>input</i> biasa di <i>sheet Excel</i>. <b>Pilihan</b> ini tergantung selera pengelola data.
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer - Diadaptasi dari index.html -->
+    <footer class="bg-gray-950 text-white py-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-lg font-bold mb-3 text-yellow-400 kanit-title">eSPeJe 2025 by @TOMMY</p>
+            <p class="text-sm text-gray-600">Hak Cipta &copy; 2025. Solusi administrasi keuangan terdepan.</p>
+        </div>
+    </footer>
+</body>
+</html>
